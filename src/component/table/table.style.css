@@ -1,0 +1,13 @@
+
+
+
+table{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+tr, td{
+    border: 1px solid #ccc;
+    padding: 10px;
+  
+}

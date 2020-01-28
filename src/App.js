@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Card from './component/card/card';
+import Table from './component/table/table';
+import Input from './component/search/search';
+import './app.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      search: ""
+
+    }
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({ users: users }));
+
+  }
+
+  render() {
+    const { users, search } = this.state;
+    const filterUser = users.filter(user => {
+      return user.name.toLowerCase().includes(search.toLowerCase())
+    })
+
+    return (   
+      <div>
+        <h1 style={{color: "#fff", fontSize: "5vw", textAlign: "center"}}>MONSTER ROLDEX</h1>
+        {/* <Table /> */}
+        <div style={{ textAlign: 'center' }}>
+          <Input type="text" value={this.state.search} placholder="Enter Name" handlerChange={e => this.setState({ search: e.target.value })} />
+        </div>
+        <br></br>
+        <br></br>
+        <Card users={filterUser}></Card>
+
+      </div>
+    )
+  }
 }
 
 export default App;

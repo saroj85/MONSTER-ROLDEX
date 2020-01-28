@@ -1,0 +1,25 @@
+
+
+.user-flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+
+.user-card{
+    width: 250px;
+    height: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 3px 2px #ccc;;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+
+thead td{
+    cursor: pointer;
+}
