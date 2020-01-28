@@ -8,6 +8,7 @@ const card = ({users}) =>  {
             {users && users.length > 0 && users.map((user, index) => {
                 return <CardList key={user.id} user={user} />
             })}
+           
             </div>
             
     )

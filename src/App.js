@@ -38,6 +38,9 @@ class App extends Component {
         <br></br>
         <Card users={filterUser}></Card>
 
+        {filterUser && filterUser.length <= 0 && 
+            <h3 style={{textAlign: "Center"}}>User Not Found</h3>}
+
       </div>
     )
   }
